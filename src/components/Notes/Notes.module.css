@@ -32,3 +32,23 @@
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 20px;
 }
+.modificationBox {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid black;
+  padding: 8px 10px;
+  align-items: center;
+  color: var(--brown);
+}
+.modificationBox .right {
+  display: flex;
+  width: 3rem;
+  justify-content: space-between;
+}
+.modificationIcon {
+  cursor: pointer;
+  transition: 0.3s;
+}
+.modificationIcon:hover {
+  color: black;
+}

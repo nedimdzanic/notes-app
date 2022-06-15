@@ -9,7 +9,13 @@ const NotesList = () => {
   return (
     <section className={classes.container}>
       {notes.map((x) => (
-        <Notes key={x.id} title={x.title} desc={x.desc} />
+        <Notes
+          key={x.id}
+          title={x.title}
+          desc={x.desc}
+          date={x.date}
+          time={x.time}
+        />
       ))}
     </section>
   );

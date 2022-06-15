@@ -9,10 +9,15 @@ const notesSlice = createSlice({
   initialState,
   reducers: {
     addNew(state) {
+      const date = new Date().toLocaleDateString(),
+        time = new Date().toLocaleTimeString();
+
       const newNotes = {
         id: state.nextId,
         title: `New note`,
         desc: "Change note description...",
+        date: date,
+        time: time,
       };
       state.notes.push(newNotes);
       state.nextId++;
