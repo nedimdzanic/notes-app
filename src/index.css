@@ -14,3 +14,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+@font-face {
+  font-family: "Papernotes";
+  src: local("Papernotes"), url(./fonts/Papernotes.ttf) format("truetype");
+}
