@@ -1,0 +1,17 @@
+@import "../../styles/colors.css";
+
+.myButton {
+  background-color: var(--green_2);
+  color: white;
+  border-radius: 1.3rem;
+  border: none;
+  font-size: 1.3rem;
+  padding: 10px 20px;
+  margin: 2px;
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
+  cursor: pointer;
+  transition: 0.3s;
+}
+.myButton:hover {
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.5));
+}
