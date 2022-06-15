@@ -1,11 +1,23 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
-const initialState = {};
+let notes = [];
+
+const initialState = { notes, nextId: 0 };
 
 const notesSlice = createSlice({
   name: "notes",
   initialState,
-  reducers: {},
+  reducers: {
+    addNew(state) {
+      const newNotes = {
+        id: state.nextId,
+        title: `New note`,
+        desc: "Change note description...",
+      };
+      state.notes.push(newNotes);
+      state.nextId++;
+    },
+  },
 });
 
 const store = configureStore({ reducer: notesSlice.reducer });
