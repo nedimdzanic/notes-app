@@ -1,10 +1,10 @@
 import classes from "./Notes.module.css";
 
-const Notes = () => {
+const Notes = (props) => {
   return (
-    <section className={classes.container}>
+    <>
       <div className={classes.card}>
-        <h2>Title 1</h2>
+        <h2>Title</h2>
         <p className={classes.description}>
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever
@@ -17,20 +17,7 @@ const Notes = () => {
           including versions of Lorem Ipsum.
         </p>
       </div>
-
-      <div className={classes.card}>
-        <h2>Title 2</h2>
-        <p className={classes.description}>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry.
-        </p>
-      </div>
-
-      <div className={classes.card}>
-        <h2>Title 3</h2>
-        <p className={classes.description}></p>
-      </div>
-    </section>
+    </>
   );
 };
 

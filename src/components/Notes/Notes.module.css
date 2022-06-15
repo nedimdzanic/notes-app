@@ -1,13 +1,5 @@
 @import "../../styles/colors.css";
 
-.container {
-  /*border: 1px solid red;*/
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  max-width: 80%;
-  margin: 0 auto;
-}
 .card {
   background-image: linear-gradient(var(--yellow_1), var(--yellow_2));
   width: 300px;
