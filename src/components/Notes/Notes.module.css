@@ -1,0 +1,39 @@
+.container {
+  /*border: 1px solid red;*/
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  max-width: 80%;
+  margin: 0 auto;
+}
+.card {
+  background-image: linear-gradient(rgb(243, 235, 118), rgb(243, 220, 118));
+  width: 300px;
+  height: auto;
+  text-align: center;
+  border-radius: 20px;
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.1));
+  margin: 20px 10px;
+  padding: 5px;
+}
+.card h2 {
+  margin: 0px;
+  text-decoration: underline;
+  font-size: 1.3rem;
+}
+.description {
+  height: 150px;
+  padding: 7px;
+  overflow: auto;
+}
+.description::-webkit-scrollbar {
+  width: 3px;
+}
+.description::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+}
+.description::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+}
