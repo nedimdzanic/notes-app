@@ -1,5 +1,7 @@
+@import "../../styles/colors.css";
+
 header h1 {
-  background-color: rgb(178, 224, 118);
+  background-color: var(--green_1);
   text-align: center;
   margin: 0;
   margin-bottom: 20px;

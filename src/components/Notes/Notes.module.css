@@ -1,3 +1,5 @@
+@import "../../styles/colors.css";
+
 .container {
   /*border: 1px solid red;*/
   display: flex;
@@ -7,7 +9,7 @@
   margin: 0 auto;
 }
 .card {
-  background-image: linear-gradient(rgb(243, 235, 118), rgb(243, 220, 118));
+  background-image: linear-gradient(var(--yellow_1), var(--yellow_2));
   width: 300px;
   height: auto;
   text-align: center;
