@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-import classes from "./Notes.module.css";
+import classes from "./Note.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
-import NotesModal from "./NotesModal";
+import NoteModal from "./NoteModal";
 
 const Notes = (props) => {
   const [editable, setEditable] = useState(false);
@@ -20,7 +20,7 @@ const Notes = (props) => {
   return (
     <>
       {editable && (
-        <NotesModal
+        <NoteModal
           id={props.id}
           title={props.title}
           desc={props.desc}

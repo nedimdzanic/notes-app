@@ -1,5 +1,5 @@
 import Header from "./components/Header/Header";
-import NotesList from "./components/Notes/NotesList";
+import NotesList from "./components/Notes/NoteList";
 import AddNew from "./components/Notes/AddNew";
 
 const App = () => {

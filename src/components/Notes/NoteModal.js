@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { useDispatch } from "react-redux/es/hooks/useDispatch";
 import { notesActions } from "../../store";
 
-import classes from "./NotesModal.module.css";
+import classes from "./NoteModal.module.css";
 import Button from "../UI/Button";
 
 const NotesModal = (props) => {

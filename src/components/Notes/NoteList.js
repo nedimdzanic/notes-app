@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux/es/exports";
 
-import Notes from "./Notes";
+import Note from "./Note";
 import classes from "./NotesList.module.css";
 
 const NotesList = () => {
@@ -9,7 +9,7 @@ const NotesList = () => {
   return (
     <section className={classes.container}>
       {notes.map((x) => (
-        <Notes
+        <Note
           key={x.id}
           id={x.id}
           title={x.title}
