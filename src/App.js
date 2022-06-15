@@ -1,13 +1,12 @@
 import Header from "./components/Header/Header";
 import NotesList from "./components/Notes/NotesList";
-import Button from "./components/UI/Button";
-import classes from "./components/Notes/NotesList.module.css";
+import AddNew from "./components/Notes/AddNew";
 
 const App = () => {
   return (
     <>
       <Header />
-      <Button className={classes.container}>Add new</Button>
+      <AddNew />
       <NotesList />
     </>
   );
