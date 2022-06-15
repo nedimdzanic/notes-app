@@ -1,26 +1,36 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
-let notes = [];
+const getDate = () => new Date().toLocaleDateString();
+const getTime = () => new Date().toLocaleTimeString();
 
-const initialState = { notes, nextId: 0 };
+const notes = [],
+  initialState = { notes, nextId: 0 };
 
 const notesSlice = createSlice({
   name: "notes",
   initialState,
   reducers: {
     addNew(state) {
-      const date = new Date().toLocaleDateString(),
-        time = new Date().toLocaleTimeString();
-
       const newNotes = {
         id: state.nextId,
         title: `New note`,
         desc: "Change note description...",
-        date: date,
-        time: time,
+        date: getDate(),
+        time: getTime(),
       };
       state.notes.push(newNotes);
       state.nextId++;
+    },
+    update(state, action) {
+      //find index of note by id
+      const index = state.notes.findIndex(
+        (obj) => obj.id === action.payload.id
+      );
+
+      state.notes[index].title = action.payload.newTitle;
+      state.notes[index].desc = action.payload.newDesc;
+      state.notes[index].date = getDate();
+      state.notes[index].time = getTime();
     },
   },
 });

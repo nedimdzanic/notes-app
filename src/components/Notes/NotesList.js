@@ -11,6 +11,7 @@ const NotesList = () => {
       {notes.map((x) => (
         <Notes
           key={x.id}
+          id={x.id}
           title={x.title}
           desc={x.desc}
           date={x.date}

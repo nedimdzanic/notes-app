@@ -1,11 +1,33 @@
+import React, { useState } from "react";
+
 import classes from "./Notes.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import NotesModal from "./NotesModal";
 
 const Notes = (props) => {
+  const [editable, setEditable] = useState(false);
+
+  const editHandler = () => {
+    setEditable(true);
+  };
+
+  const onCancelHandler = () => {
+    setEditable(false);
+  };
+
   return (
     <>
+      {editable && (
+        <NotesModal
+          id={props.id}
+          title={props.title}
+          desc={props.desc}
+          onClickCancel={onCancelHandler}
+        />
+      )}
+
       <div className={classes.card}>
         <h2>{props.title}</h2>
         <p className={classes.description}>{props.desc}</p>
@@ -17,6 +39,7 @@ const Notes = (props) => {
             <FontAwesomeIcon
               className={classes.modificationIcon}
               icon={faPenToSquare}
+              onClick={editHandler}
             />
             <FontAwesomeIcon
               className={classes.modificationIcon}
