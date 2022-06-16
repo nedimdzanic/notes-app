@@ -9,7 +9,7 @@ let notes = [],
 if (JSON.parse(localStorage.getItem("notes"))) {
   initialState = JSON.parse(localStorage.getItem("notes"));
 } else {
-  initialState = { notes, nextId: 0 };
+  initialState = { notes, nextId: 0, filter: "all" };
 }
 
 const notesSlice = createSlice({
@@ -52,6 +52,9 @@ const notesSlice = createSlice({
       const index = state.notes.findIndex((obj) => obj.id === action.payload);
 
       state.notes[index].favourite = !state.notes[index].favourite;
+    },
+    filter(state, action) {
+      state.filter = action.payload;
     },
   },
 });

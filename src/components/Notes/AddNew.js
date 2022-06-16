@@ -12,7 +12,7 @@ const AddNew = () => {
   };
 
   return (
-    <div className={classes.container}>
+    <div className={classes.center}>
       <Button onClick={addNewHandler}>Add new</Button>
     </div>
   );

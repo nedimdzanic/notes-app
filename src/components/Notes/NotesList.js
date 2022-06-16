@@ -9,9 +9,14 @@ const NotesList = () => {
 
   localStorage.setItem("notes", JSON.stringify(notesState));
 
+  let filteredNotes;
+  if (notesState.filter === "favourites") {
+    filteredNotes = notes.filter((note) => note.favourite);
+  } else filteredNotes = notes;
+
   return (
     <section className={classes.container}>
-      {notes.map((note) => (
+      {filteredNotes.map((note) => (
         <Note
           key={note.id}
           id={note.id}
