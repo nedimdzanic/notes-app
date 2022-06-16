@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux/es/exports";
+import { useSelector } from "react-redux";
 
 import Note from "./Note";
 import classes from "./NotesList.module.css";
@@ -10,7 +10,11 @@ const NotesList = () => {
   localStorage.setItem("notes", JSON.stringify(notesState));
 
   let filteredNotes;
-  if (notesState.filter === "favourites") {
+  if (notesState.search !== "") {
+    filteredNotes = notes.filter((note) =>
+      note.title.toLowerCase().startsWith(notesState.search.toLowerCase())
+    );
+  } else if (notesState.filter === "favourites") {
     filteredNotes = notes.filter((note) => note.favourite);
   } else filteredNotes = notes;
 

@@ -43,7 +43,6 @@ const Notes = (props) => {
           onClickCancel={onCancelHandler}
         />
       )}
-
       <div className={classes.card}>
         <FontAwesomeIcon
           icon={faStar}

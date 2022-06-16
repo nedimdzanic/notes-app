@@ -11,6 +11,7 @@ const Filter = () => {
 
   const filterHandler = (filterType) => {
     dispatch(notesActions.filter(filterType));
+    dispatch(notesActions.search(""));
   };
 
   let className1, className2;
