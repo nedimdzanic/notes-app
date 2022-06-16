@@ -1,3 +1,5 @@
+@import "../../styles/colors.css";
+
 .filter {
   display: flex;
   justify-content: center;
@@ -8,6 +10,6 @@
   padding: 7px 15px !important;
 }
 .filter button:not(.active) {
-  background-color: rgb(235, 231, 228) !important;
+  background-color: var(--gray_2) !important;
   color: black;
 }

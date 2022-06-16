@@ -1,0 +1,28 @@
+@import "../../styles/colors.css";
+
+.searchContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.search {
+  background-color: var(--gray_2);
+  border-radius: 1.3rem;
+  border: none;
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
+  margin: 2px;
+  padding: 9px;
+  width: 200px;
+}
+.search:focus {
+  outline: 2px solid var(--green_2);
+}
+.searchIcon {
+  z-index: 1;
+  position: absolute;
+  background-color: var(--green_2);
+  color: var(--gray_2);
+  border-radius: 50%;
+  padding: 9px;
+  right: 2px;
+}

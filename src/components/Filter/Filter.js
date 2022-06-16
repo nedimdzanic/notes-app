@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { notesActions } from "../../store";
 
 import classes from "./Filter.module.css";
+import Search from "../UI/Search";
 
 const Filter = () => {
   const dispatch = useDispatch();
@@ -37,6 +38,7 @@ const Filter = () => {
       >
         Favourites
       </Button>
+      <Search />
     </div>
   );
 };
