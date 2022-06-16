@@ -15,7 +15,7 @@ const Filter = () => {
 
   let className1, className2;
   switch (filter) {
-    case "all": {
+    default: {
       className1 = classes.active;
       className2 = "";
       break;
