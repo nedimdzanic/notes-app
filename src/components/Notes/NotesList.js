@@ -20,6 +20,7 @@ const NotesList = () => {
           date={note.date}
           time={note.time}
           edited={note.edited}
+          favourite={note.favourite}
         />
       ))}
     </section>

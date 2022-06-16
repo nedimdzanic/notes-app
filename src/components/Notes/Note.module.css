@@ -57,3 +57,16 @@
   opacity: 0.8;
   margin-left: 5px;
 }
+.favourite {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+  font-size: 1.4rem;
+  opacity: 0.4;
+  cursor: pointer;
+}
+.isFavourite {
+  opacity: 1;
+  color: var(--organge_1);
+}

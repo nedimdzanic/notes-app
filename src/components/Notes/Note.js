@@ -6,6 +6,8 @@ import classes from "./Note.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+
 import NoteModal from "./NoteModal";
 
 const Notes = (props) => {
@@ -24,6 +26,13 @@ const Notes = (props) => {
     setEditable(false);
   };
 
+  const favouriteHandler = () => {
+    dispatch(notesActions.favourite(props.id));
+  };
+
+  let favoriteClassnames = classes.favourite;
+  if (props.favourite) favoriteClassnames += " " + classes.isFavourite;
+
   return (
     <>
       {editable && (
@@ -36,12 +45,22 @@ const Notes = (props) => {
       )}
 
       <div className={classes.card}>
+        <FontAwesomeIcon
+          icon={faStar}
+          className={favoriteClassnames}
+          onClick={favouriteHandler}
+        />
         <h2>{props.title}</h2>
         <p className={classes.description}>{props.desc}</p>
         <div className={classes.modificationBox}>
           <div className={classes.date}>
             {props.date} <br /> {props.time}
-            <FontAwesomeIcon icon={faPenToSquare} className={classes.edited} />
+            {props.edited && (
+              <FontAwesomeIcon
+                icon={faPenToSquare}
+                className={classes.edited}
+              />
+            )}
           </div>
           <div className={classes.right}>
             <FontAwesomeIcon

@@ -24,6 +24,7 @@ const notesSlice = createSlice({
         date: getDate(),
         time: getTime(),
         edited: false,
+        favourite: false,
       };
       state.notes.push(newNotes);
       state.nextId++;
@@ -42,11 +43,15 @@ const notesSlice = createSlice({
     },
     delete(state, action) {
       //find index of note by id
-      const index = state.notes.findIndex(
-        (obj) => obj.id === action.payload.id
-      );
+      const index = state.notes.findIndex((obj) => obj.id === action.payload);
 
       state.notes.splice(index, 1);
+    },
+    favourite(state, action) {
+      //find index of note by id
+      const index = state.notes.findIndex((obj) => obj.id === action.payload);
+
+      state.notes[index].favourite = !state.notes[index].favourite;
     },
   },
 });
