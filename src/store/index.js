@@ -3,8 +3,14 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 const getDate = () => new Date().toLocaleDateString();
 const getTime = () => new Date().toLocaleTimeString();
 
-const notes = [],
+let notes = [],
+  initialState = {};
+
+if (JSON.parse(localStorage.getItem("notes"))) {
+  initialState = JSON.parse(localStorage.getItem("notes"));
+} else {
   initialState = { notes, nextId: 0 };
+}
 
 const notesSlice = createSlice({
   name: "notes",

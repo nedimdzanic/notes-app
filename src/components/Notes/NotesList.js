@@ -5,6 +5,9 @@ import classes from "./NotesList.module.css";
 
 const NotesList = () => {
   const notes = useSelector((state) => state.notes);
+  const notesState = useSelector((state) => state);
+
+  localStorage.setItem("notes", JSON.stringify(notesState));
 
   return (
     <section className={classes.container}>
