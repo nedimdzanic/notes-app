@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { notesActions } from "../../store";
 
@@ -9,9 +9,17 @@ const NotesModal = (props) => {
   const dispatch = useDispatch();
   const titleInputRef = useRef(props.title);
   const descInputRef = useRef(props.desc);
+  const [error, setError] = useState(false);
 
   const cancelHandler = () => {
     props.onClickCancel();
+  };
+
+  const onChangeHandler = () => {
+    titleInputRef.current.value.trim().length < 1 ||
+    descInputRef.current.value.trim().length < 1
+      ? setError(true)
+      : setError(false);
   };
 
   const saveHandler = () => {
@@ -33,14 +41,18 @@ const NotesModal = (props) => {
           type="text"
           ref={titleInputRef}
           defaultValue={props.title}
+          onChange={onChangeHandler}
         />
         <textarea
           className={classes.description}
           ref={descInputRef}
           defaultValue={props.desc}
+          onChange={onChangeHandler}
         ></textarea>
         <div className={classes.buttons}>
-          <Button onClick={saveHandler}>Save</Button>
+          <Button onClick={saveHandler} disabled={error}>
+            Save
+          </Button>
           <Button className={classes.cancel} onClick={cancelHandler}>
             Cancel
           </Button>

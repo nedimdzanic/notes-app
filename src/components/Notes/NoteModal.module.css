@@ -68,6 +68,6 @@ textarea:focus {
   justify-content: center;
 }
 .cancel {
-  background-color: rgb(97, 96, 96) !important;
+  background-color: var(--gray_1) !important;
   margin-left: 20px !important;
 }
