@@ -42,12 +42,14 @@ const NotesModal = (props) => {
           ref={titleInputRef}
           defaultValue={props.title}
           onChange={onChangeHandler}
+          placeholder={"Title"}
         />
         <textarea
           className={classes.description}
           ref={descInputRef}
           defaultValue={props.desc}
           onChange={onChangeHandler}
+          placeholder={"Description"}
         ></textarea>
         <div className={classes.buttons}>
           <Button onClick={saveHandler} disabled={error}>
