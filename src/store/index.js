@@ -23,6 +23,7 @@ const notesSlice = createSlice({
         desc: "Change note description...",
         date: getDate(),
         time: getTime(),
+        edited: false,
       };
       state.notes.push(newNotes);
       state.nextId++;
@@ -37,6 +38,15 @@ const notesSlice = createSlice({
       state.notes[index].desc = action.payload.newDesc;
       state.notes[index].date = getDate();
       state.notes[index].time = getTime();
+      state.notes[index].edited = true;
+    },
+    delete(state, action) {
+      //find index of note by id
+      const index = state.notes.findIndex(
+        (obj) => obj.id === action.payload.id
+      );
+
+      state.notes.splice(index, 1);
     },
   },
 });

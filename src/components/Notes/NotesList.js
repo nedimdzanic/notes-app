@@ -11,14 +11,15 @@ const NotesList = () => {
 
   return (
     <section className={classes.container}>
-      {notes.map((x) => (
+      {notes.map((note) => (
         <Note
-          key={x.id}
-          id={x.id}
-          title={x.title}
-          desc={x.desc}
-          date={x.date}
-          time={x.time}
+          key={note.id}
+          id={note.id}
+          title={note.title}
+          desc={note.desc}
+          date={note.date}
+          time={note.time}
+          edited={note.edited}
         />
       ))}
     </section>

@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { notesActions } from "../../store";
 
 import classes from "./Note.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,10 +9,15 @@ import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import NoteModal from "./NoteModal";
 
 const Notes = (props) => {
+  const dispatch = useDispatch();
   const [editable, setEditable] = useState(false);
 
   const editHandler = () => {
     setEditable(true);
+  };
+
+  const deleteHandler = () => {
+    dispatch(notesActions.delete(props.id));
   };
 
   const onCancelHandler = () => {
@@ -34,6 +41,7 @@ const Notes = (props) => {
         <div className={classes.modificationBox}>
           <div className={classes.date}>
             {props.date} <br /> {props.time}
+            <FontAwesomeIcon icon={faPenToSquare} className={classes.edited} />
           </div>
           <div className={classes.right}>
             <FontAwesomeIcon
@@ -44,6 +52,7 @@ const Notes = (props) => {
             <FontAwesomeIcon
               className={classes.modificationIcon}
               icon={faTrashCan}
+              onClick={deleteHandler}
             />
           </div>
         </div>

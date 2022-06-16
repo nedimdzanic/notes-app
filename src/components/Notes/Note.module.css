@@ -52,3 +52,8 @@
 .modificationIcon:hover {
   color: black;
 }
+.edited {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin-left: 5px;
+}
