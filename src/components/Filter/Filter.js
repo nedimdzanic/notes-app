@@ -16,14 +16,14 @@ const Filter = () => {
 
   let className1, className2;
   switch (filter) {
-    default: {
-      className1 = classes.active;
-      className2 = "";
-      break;
-    }
     case "favourites": {
       className1 = "";
       className2 = classes.active;
+      break;
+    }
+    default: {
+      className1 = classes.active;
+      className2 = "";
       break;
     }
   }

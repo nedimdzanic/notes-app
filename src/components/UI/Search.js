@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { notesActions } from "../../store";
 
@@ -13,21 +13,23 @@ const Search = () => {
 
   const searchHandler = () => {
     dispatch(notesActions.search(searchInputRef.current.value));
-    searchInputRef.current.value = "";
   };
+
+  useEffect(() => {
+    if (search === "") {
+      searchInputRef.current.value = "";
+    }
+  }, [search]);
 
   return (
     <div className={classes.searchContainer}>
-      <FontAwesomeIcon
-        icon={faSearch}
-        className={classes.searchIcon}
-        onClick={searchHandler}
-      />
+      <FontAwesomeIcon icon={faSearch} className={classes.searchIcon} />
       <input
         type="text"
         className={classes.search}
         placeholder="Search..."
         ref={searchInputRef}
+        onChange={searchHandler}
       />
     </div>
   );
