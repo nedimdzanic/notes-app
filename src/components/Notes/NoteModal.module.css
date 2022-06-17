@@ -20,8 +20,6 @@
   text-align: center;
   border-radius: 20px;
   filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.1));
-  margin: 20px 10px;
-  padding: 5px;
   font-family: Papernotes;
 }
 .title {
@@ -32,6 +30,7 @@
   font-family: Papernotes;
   background-color: transparent;
   border: none;
+  padding: 5px;
 }
 .modalContainer input:focus,
 .modalContainer textarea:focus {
@@ -66,6 +65,7 @@
 .buttons {
   display: flex;
   justify-content: center;
+  padding: 5px;
 }
 .cancel {
   background-color: var(--gray_1) !important;
