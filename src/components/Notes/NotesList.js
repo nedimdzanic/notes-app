@@ -22,6 +22,9 @@ const NotesList = () => {
 
   return (
     <section className={classes.container}>
+      {filteredNotes.length < 1 && (
+        <p className={classes.noteAlert}>There are no notes to display...</p>
+      )}
       <Pagination itemsPerPage={8} items={filteredNotes} />
     </section>
   );
