@@ -6,7 +6,6 @@ import Pagination from "../UI/Pagination";
 const NotesList = () => {
   const notes = useSelector((state) => state.notes);
   const notesState = useSelector((state) => state);
-  //const [filteredNotes, setFilteredNotes] = useState(notes);
 
   localStorage.setItem("notes", JSON.stringify(notesState));
 

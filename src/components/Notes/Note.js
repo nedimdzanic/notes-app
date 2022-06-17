@@ -8,6 +8,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { faFileArrowDown } from "@fortawesome/free-solid-svg-icons";
+import { downloadJsonFile } from "../../utils";
 
 const Notes = (props) => {
   const dispatch = useDispatch();
@@ -27,6 +29,10 @@ const Notes = (props) => {
 
   const favouriteHandler = () => {
     dispatch(notesActions.favourite(props.id));
+  };
+
+  const exportHandler = () => {
+    downloadJsonFile(props, props.title);
   };
 
   let favoriteClassnames = classes.favourite;
@@ -71,6 +77,11 @@ const Notes = (props) => {
               className={classes.modificationIcon}
               icon={faTrashCan}
               onClick={deleteHandler}
+            />
+            <FontAwesomeIcon
+              className={classes.modificationIcon}
+              icon={faFileArrowDown}
+              onClick={exportHandler}
             />
           </div>
         </div>

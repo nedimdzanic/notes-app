@@ -42,7 +42,7 @@
 }
 .modificationBox .right {
   display: flex;
-  width: 3rem;
+  width: 4.5rem;
   justify-content: space-between;
 }
 .modificationIcon {
