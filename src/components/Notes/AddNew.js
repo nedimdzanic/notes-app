@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { notesActions } from "../../store";
 
 import classes from "./NotesList.module.css";
-import Button from "../UI/Button";
+import Button from "../UI/Button/Button";
 
 const AddNew = () => {
   const dispatch = useDispatch();

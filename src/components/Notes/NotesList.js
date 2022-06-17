@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 
 import classes from "./NotesList.module.css";
-import Pagination from "../UI/Pagination";
+import Pagination from "../UI/Pagination/Pagination";
 
 const NotesList = () => {
   const notes = useSelector((state) => state.notes);

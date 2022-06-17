@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { notesActions } from "../../store";
+import { notesActions } from "../../../store";
 
 import classes from "./Search.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

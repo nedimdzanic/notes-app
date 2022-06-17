@@ -1,9 +1,9 @@
-import Button from "../UI/Button";
+import Button from "../UI/Button/Button";
 import { useSelector, useDispatch } from "react-redux";
 import { notesActions } from "../../store";
 
 import classes from "./Filter.module.css";
-import Search from "../UI/Search";
+import Search from "../UI/Search/Search";
 
 const Filter = () => {
   const dispatch = useDispatch();

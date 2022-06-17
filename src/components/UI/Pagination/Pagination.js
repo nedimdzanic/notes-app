@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import ReactPaginate from "react-paginate";
-import Note from "../../components/Notes/Note";
+import Note from "../../../components/Notes/Note";
 import classes from "./Pagination.module.css";
 
 const Items = ({ currentItems }) => {

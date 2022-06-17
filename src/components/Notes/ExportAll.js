@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-import Button from "../UI/Button";
+import Button from "../UI/Button/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileArrowDown } from "@fortawesome/free-solid-svg-icons";
 import classes from "./ExportAll.module.css";
