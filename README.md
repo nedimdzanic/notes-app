@@ -2,6 +2,10 @@
 
 An application for adding notes. Notes can be edited, favored, deleted or exported. The application allows you to search for notes based on the title. All notes are stored in the local storage.
 
+## Demo
+
+[https://flipkod-notes.netlify.app](https://flipkod-notes.netlify.app)
+
 ## Installation
 
 ```bash
