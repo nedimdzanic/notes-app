@@ -3,12 +3,11 @@ import { useDispatch } from "react-redux";
 import { notesActions } from "../../store";
 
 import classes from "./Note.module.css";
+import NoteModal from "./NoteModal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-
-import NoteModal from "./NoteModal";
 
 const Notes = (props) => {
   const dispatch = useDispatch();
@@ -43,6 +42,7 @@ const Notes = (props) => {
           onClickCancel={onCancelHandler}
         />
       )}
+
       <div className={classes.card}>
         <FontAwesomeIcon
           icon={faStar}

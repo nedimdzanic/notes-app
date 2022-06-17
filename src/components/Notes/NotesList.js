@@ -1,11 +1,12 @@
 import { useSelector } from "react-redux";
 
-import Note from "./Note";
 import classes from "./NotesList.module.css";
+import Pagination from "../UI/Pagination";
 
 const NotesList = () => {
   const notes = useSelector((state) => state.notes);
   const notesState = useSelector((state) => state);
+  //const [filteredNotes, setFilteredNotes] = useState(notes);
 
   localStorage.setItem("notes", JSON.stringify(notesState));
 
@@ -22,18 +23,7 @@ const NotesList = () => {
 
   return (
     <section className={classes.container}>
-      {filteredNotes.map((note) => (
-        <Note
-          key={note.id}
-          id={note.id}
-          title={note.title}
-          desc={note.desc}
-          date={note.date}
-          time={note.time}
-          edited={note.edited}
-          favourite={note.favourite}
-        />
-      ))}
+      <Pagination itemsPerPage={8} items={filteredNotes} />
     </section>
   );
 };

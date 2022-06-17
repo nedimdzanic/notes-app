@@ -9,7 +9,12 @@ let notes = [],
 if (JSON.parse(localStorage.getItem("notes"))) {
   initialState = JSON.parse(localStorage.getItem("notes"));
 } else {
-  initialState = { notes, nextId: 0, filter: "all", search: "" };
+  initialState = {
+    notes,
+    nextId: 0,
+    filter: "all",
+    search: "",
+  };
 }
 
 const notesSlice = createSlice({

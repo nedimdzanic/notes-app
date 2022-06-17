@@ -1,0 +1,25 @@
+@import "../../styles/colors.css";
+
+.pagination {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  gap: 5px;
+  min-width: 100%;
+}
+.pagination .pageNum {
+  padding: 8px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid var(--green_2);
+  background-color: var(--gray_2);
+  transition: 0.3s;
+}
+.pagination .pageNum:hover,
+.pagination .active {
+  color: white;
+  background-color: var(--green_2);
+}
