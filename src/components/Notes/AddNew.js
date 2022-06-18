@@ -8,6 +8,8 @@ const AddNew = () => {
   const dispatch = useDispatch();
 
   const addNewHandler = () => {
+    dispatch(notesActions.filter("all"));
+    dispatch(notesActions.search(""));
     dispatch(notesActions.addNew());
   };
 

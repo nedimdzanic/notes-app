@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 
 import ReactPaginate from "react-paginate";
 import Note from "../../../components/Notes/Note";
@@ -25,6 +26,10 @@ const Items = ({ currentItems }) => {
 };
 
 const Pagination = ({ itemsPerPage, items }) => {
+  const filter = useSelector((state) => state.filter);
+  const search = useSelector((state) => state.search);
+  const [force, setForce] = useState(undefined);
+
   const [currentItems, setCurrentItems] = useState(null);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
@@ -36,10 +41,17 @@ const Pagination = ({ itemsPerPage, items }) => {
     setPageCount(Math.ceil(items.length / itemsPerPage));
   }, [itemOffset, itemsPerPage, items]);
 
+  useEffect(() => {
+    const newOffset = (0 * itemsPerPage) % items.length;
+    setItemOffset(newOffset);
+    setForce(0);
+  }, [filter, search, items.length, itemsPerPage]);
+
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % items.length;
 
     setItemOffset(newOffset);
+    setForce(event.selected);
   };
 
   return (
@@ -50,6 +62,7 @@ const Pagination = ({ itemsPerPage, items }) => {
         pageRangeDisplayed={3}
         marginPagesDisplayed={2}
         pageCount={pageCount}
+        forcePage={force}
         previousLabel="<"
         nextLabel=">"
         breakLabel="..."
