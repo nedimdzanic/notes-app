@@ -20,6 +20,13 @@ const NotesList = () => {
     );
   }
 
+  //sort by DESC
+  filteredNotes = filteredNotes
+    .map((e) => {
+      return e;
+    })
+    .sort((a, b) => b.id - a.id);
+
   return (
     <section className={classes.container}>
       {filteredNotes.length < 1 ? (
