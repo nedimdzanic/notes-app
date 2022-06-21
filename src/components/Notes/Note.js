@@ -42,9 +42,11 @@ const Notes = (props) => {
     <>
       {editable && (
         <NoteModal
+          type={"edit"}
           id={props.id}
           title={props.title}
           desc={props.desc}
+          submitButton={"Save"}
           onClickCancel={onCancelHandler}
         />
       )}

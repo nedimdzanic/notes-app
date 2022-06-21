@@ -21,11 +21,11 @@ const notesSlice = createSlice({
   name: "notes",
   initialState,
   reducers: {
-    addNew(state) {
+    addNew(state, action) {
       const newNotes = {
         id: state.nextId,
-        title: `New note`,
-        desc: "Change note description...",
+        title: action.payload.title,
+        desc: action.payload.desc,
         date: getDate(),
         time: getTime(),
         edited: false,
@@ -40,8 +40,8 @@ const notesSlice = createSlice({
         (obj) => obj.id === action.payload.id
       );
 
-      state.notes[index].title = action.payload.newTitle;
-      state.notes[index].desc = action.payload.newDesc;
+      state.notes[index].title = action.payload.title;
+      state.notes[index].desc = action.payload.desc;
       state.notes[index].date = getDate();
       state.notes[index].time = getTime();
       state.notes[index].edited = true;

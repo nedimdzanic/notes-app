@@ -9,11 +9,9 @@ const NotesModal = (props) => {
   const dispatch = useDispatch();
   const titleInputRef = useRef(props.title);
   const descInputRef = useRef(props.desc);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(props.type === "create" ? true : false);
 
-  const cancelHandler = () => {
-    props.onClickCancel();
-  };
+  const cancelHandler = () => props.onClickCancel();
 
   const onChangeHandler = () => {
     titleInputRef.current.value.trim().length < 1 ||
@@ -22,14 +20,29 @@ const NotesModal = (props) => {
       : setError(false);
   };
 
-  const saveHandler = () => {
-    dispatch(
-      notesActions.update({
-        id: props.id,
-        newTitle: titleInputRef.current.value,
-        newDesc: descInputRef.current.value,
-      })
-    );
+  const submitHandler = () => {
+    const title = titleInputRef.current.value,
+      desc = descInputRef.current.value;
+
+    if (props.type === "create") {
+      dispatch(notesActions.filter("all"));
+      dispatch(notesActions.search(""));
+      dispatch(
+        notesActions.addNew({
+          title,
+          desc,
+        })
+      );
+    } else if (props.type === "edit") {
+      dispatch(
+        notesActions.update({
+          id: props.id,
+          title,
+          desc,
+        })
+      );
+    }
+
     props.onClickCancel();
   };
 
@@ -52,8 +65,8 @@ const NotesModal = (props) => {
           placeholder={"Description"}
         ></textarea>
         <div className={classes.buttons}>
-          <Button onClick={saveHandler} disabled={error}>
-            Save
+          <Button onClick={submitHandler} disabled={error}>
+            {props.submitButton}
           </Button>
           <Button className={classes.cancel} onClick={cancelHandler}>
             Cancel

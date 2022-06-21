@@ -1,22 +1,28 @@
-import { useDispatch } from "react-redux";
-import { notesActions } from "../../store";
-
+import React, { useState } from "react";
 import classes from "./NotesList.module.css";
 import Button from "../UI/Button/Button";
+import NoteModal from "./NoteModal";
 
 const AddNew = () => {
-  const dispatch = useDispatch();
+  const [showed, showModal] = useState(false);
 
-  const addNewHandler = () => {
-    dispatch(notesActions.filter("all"));
-    dispatch(notesActions.search(""));
-    dispatch(notesActions.addNew());
-  };
+  const addNewHandler = () => showModal(true);
+
+  const onCancelHandler = () => showModal(false);
 
   return (
-    <div className={classes.center}>
-      <Button onClick={addNewHandler}>Add new</Button>
-    </div>
+    <>
+      {showed && (
+        <NoteModal
+          type={"create"}
+          onClickCancel={onCancelHandler}
+          submitButton={"Create"}
+        />
+      )}
+      <div className={classes.center}>
+        <Button onClick={addNewHandler}>Add new</Button>
+      </div>
+    </>
   );
 };
 
